@@ -1,1 +1,32 @@
-<p>employee-form works!</p>
+<form  class="row" [formGroup]="service.employeeForm" (ngSubmit)="onSubmit()">
+    <div class="col-12 mb-3">
+        <label class="form-label">
+            Full Name
+        </label>
+        <input type="text" class="form-control form-control lg" placeholder="Enter your name" formControlName="fullName">
+    </div>
+
+    <div class="col-12 mb-3">
+        <label class="form-label">
+            Location
+        </label>
+        <input type="text" class="form-control form-control lg" placeholder="Enter your location" formControlName="location">
+    </div>
+
+    <div class="col-6 mb-3">
+        <label class="form-label">
+            Position
+        </label>
+        <input type="text" class="form-control form-control lg" placeholder="Position" formControlName="position">
+    </div>
+
+    <div class="col-6 mb-3">
+        <label class="form-label">
+            Salary
+        </label>
+        <input type="number" class="form-control form-control lg" placeholder="Salary" formControlName="salary">
+    </div>
+    <div class="col-12 d-grid">
+        <button class="btn btn-lg btn-primary " type="submit" onsubmit="onSubmit()">Submit</button>
+    </div>
+</form>
