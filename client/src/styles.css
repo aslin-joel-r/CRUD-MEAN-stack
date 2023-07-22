@@ -4,3 +4,7 @@ form input::placeholder{
 
     color:green !important;
 }
+
+form.ng-invalid.submitted input.ng-invalid{
+    border-color: red;
+}
