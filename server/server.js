@@ -7,8 +7,6 @@ const app=express();
 
 app.use(bodyParser.json());
 
-
-
 connectDb()
     .then(()=>{
         console.log('Connected with the database!!!!');
