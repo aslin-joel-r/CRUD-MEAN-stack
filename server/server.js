@@ -1,7 +1,8 @@
+// importing the required modules
+
 const express=require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const employeeRoutes=require('./controllers/employee.controller.js');
 
 const app=express();
 
@@ -28,12 +29,20 @@ const connectDb = async () => {
 };
 
 connectDb();
+// models for the database
+
+const Employee= mongoose.model('Employee',{
+    fullName:{type:String},
+    position:{type:String},
+    location:{type:String},
+    salary:{type:Number}
+})
 
 
-const router = express.Router();
+// routing the requests
 
 const ObjectId=require('mongoose').Types.ObjectId;
-const Employee = require('./models/employee.models.js');
+
 
 app.get('/employees', (req, res) => {
   Employee.find()
@@ -62,4 +71,17 @@ app.post('/employees/',(req,res)=>{
    .then(data=>res.status(201).json(data))
    .catch(err=>console.log(err))
 })
+
+app.put('/employees/:id',(req,res)=>{
+    Employee.findByIdAndUpdate(req.params.id,req.body,{new:true})
+    .then(data=>res.status(200).json(data))
+    .catch(err=>console.log(err))
+})
+
+app.delete('/employees/:id',(req,res)=>{
+    Employee.findByIdAndDelete(req.params.id)
+    .then(data=>res.status(200).json(data))
+    .catch(err=>console.log(err))
+})
+
 
