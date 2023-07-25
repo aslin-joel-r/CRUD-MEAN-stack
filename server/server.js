@@ -2,14 +2,12 @@ const bodyParser = require('body-parser');
 const express=require('express');
 
 const connectDb=require('./db.js');
-const employeeRoutes=require('./controllers/employee_controller.js');
+const employeeRoutes=require('./controllers/employee.controller.js');
 
 const app=express();
 
 app.use(bodyParser.json());
-app.use('/api/employee',(req,res)=>{
-    res.send('Hello from the server!!!!'); 
-    })
+app.use('/api/employee',employeeRoutes)
 
 connectDb()
     .then(()=>{
