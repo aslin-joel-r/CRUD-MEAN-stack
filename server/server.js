@@ -7,7 +7,7 @@ const employeeRoutes=require('./controllers/employee.controller.js');
 const app=express();
 
 app.use(bodyParser.json());
-app.use('/api/employee',employeeRoutes)
+app.use('/api/employees',employeeRoutes)
 
 connectDb()
     .then(()=>{
