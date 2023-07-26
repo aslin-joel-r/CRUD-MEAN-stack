@@ -9,7 +9,22 @@
             <app-employee-form></app-employee-form>
         </div>
         <div class="col-md-6">
-            list of empoyees
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Position</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let emp of service.list">
+                            <td>{{emp.fullName}}</td>
+                            <td>{{emp.position}}</td>
+                            <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
