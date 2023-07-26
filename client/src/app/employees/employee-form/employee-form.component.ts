@@ -17,6 +17,7 @@ export class EmployeeFormComponent {
     if (this.service.employeeForm.valid)
       this.service.postEmployee().subscribe(res=>{
         this.resetForm();
+        this.service.fetchEmployees();
       })
     }
 
