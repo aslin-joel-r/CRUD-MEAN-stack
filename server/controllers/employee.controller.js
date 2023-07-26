@@ -26,14 +26,25 @@ router.get('/:id', (req, res,next) =>
 
  
 router.post('/',(req,res,next)=>{
-   console.log('req.body',req.body)
-   // employeeCrud.create(req.body)
-   // .then(data=>res.status(201).json(data))
-   // .catch(err => next(err))
+   const newRecord={
+      fullName:req.body.fullName,
+      position:req.body.position,
+      location:req.body.location,
+      salary  :req.body.salary
+   }
+   employeeCrud.create(newRecord)
+   .then(data=>res.status(201).json(data))
+   .catch(err => next(err))
 })
 
 router.put('/:id',validateDbId,(req,res)=>{
-   employeeCrud.update(req.params.id,req.body)
+   const updateRecord={
+      fullName:req.body.fullName,
+      position:req.body.position,
+      location:req.body.location,
+      salary  :req.body.salary
+   }
+   employeeCrud.update(req.params.id,updateRecord)
    .then(data => {
       if(data)
          res.send(data)
