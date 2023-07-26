@@ -15,12 +15,22 @@ export class EmployeeFormComponent {
 
   onSubmit(){
     this.submitted=true;
-    if (this.service.employeeForm.valid)
+    if (this.service.employeeForm.valid){
+      
+      if(this.service.employeeForm.get('_id')?.value=='')
       this.service.postEmployee().subscribe(res=>{
-        this.resetForm();
-        this.toastr.success('Created Successfully','Employee Register');
         this.service.fetchEmployees();
+        this.toastr.success('Created Successfully','Employee Register');
+        this.resetForm();
       })
+    }
+    else{
+      this.service.putEmployee().subscribe(res=>{
+        this.service.fetchEmployees();
+        this.toastr.info('updated Successfully','Employee Register');
+        this.resetForm();
+      })
+    }
     }
 
     resetForm(){
