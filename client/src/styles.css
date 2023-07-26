@@ -8,3 +8,9 @@ form input::placeholder{
 form.ng-invalid.submitted input.ng-invalid{
     border-color: red;
 }
+table tr td:not(:last-child):hover{
+    cursor: pointer;
+}
+table tr td:last-child> i:hover{
+    cursor: pointer;
+}

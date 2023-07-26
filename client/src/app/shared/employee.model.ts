@@ -1,8 +1,8 @@
 export class Employee {
-    _id:String='';
-    fullName:String='';
-    position:String='';
-    location:String='';
-    salary: Number=0;
+    _id:string='';
+    fullName:string='';
+    position:string='';
+    location:string='';
+    salary: string='';
 
 }
