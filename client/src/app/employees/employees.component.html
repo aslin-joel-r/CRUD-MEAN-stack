@@ -1,4 +1,4 @@
-<div class="text-bg-dark text-center rounded-bottom">
+<div class="text-bg-dark text-center rounded-bottom py-4">
     <h1 class="display-4">
         Employee Register
     </h1>
@@ -19,9 +19,11 @@
                 </thead>
                 <tbody>
                     <tr *ngFor="let emp of service.list">
-                            <td (click)="populateForm(emp)">{{emp.fullName}}</td>
-                            <td (click)="populateForm(emp)">{{emp.position}}</td>
-                            <td><i class="far fa-trash-alt fa-lg text-secondary" (click)="onDelete(emp._id)"></i></td>
+                        <td (click)="populateForm(emp)">{{emp.fullName}}</td>
+                        <td (click)="populateForm(emp)">{{emp.position}}</td>
+                        <td>
+                            <i class="far fa-trash-alt fa-lg text-secondary" (click)="onDelete(emp._id)"></i>
+                        </td>
                     </tr>
                 </tbody>
             </table>
