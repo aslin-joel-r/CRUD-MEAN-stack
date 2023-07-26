@@ -15,6 +15,13 @@ export class EmployeeFormComponent {
   onSubmit(){
     this.submitted=true;
     if (this.service.employeeForm.valid)
-    console.log(this.service.employeeForm.value)
-  }
+      this.service.postEmployee().subscribe(res=>{
+        this.resetForm();
+      })
+    }
+
+    resetForm(){
+      this.service.employeeForm.reset();
+      this.submitted=false;
+    }
 }
